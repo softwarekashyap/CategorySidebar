@@ -2,6 +2,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Kashyap_Sidebar',
+    'Kashyap_CategorySidebar',
     __DIR__
 );
