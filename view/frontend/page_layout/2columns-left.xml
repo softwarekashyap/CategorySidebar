@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (softwarekashyap@gmail.com)
+ * @package Kashyap_CategorySidebar
+*/
+
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="2columns-left"/>
+
+    <referenceContainer name="columns">
+        <referenceContainer name="sidebar.main" htmlTag="div" htmlClass="ks-sidebar ks-sidebar-categories">
+            <block class="Kashyap\CategorySidebar\Block\Sidebar" name="category-sidebar" template="Kashyap_CategorySidebar::categorySidebar.phtml"/>
+        </referenceContainer>
+    </referenceContainer>
+</layout>

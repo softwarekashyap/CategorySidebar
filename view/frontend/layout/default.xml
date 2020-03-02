@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (softwarekashyap@gmail.com)
+ * @package Kashyap_CategorySidebar
+*/
+
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Kashyap_categorySidebar::css/tree.css" />
+        <css src="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" src_type="url" />
+    </head>
+</page>
