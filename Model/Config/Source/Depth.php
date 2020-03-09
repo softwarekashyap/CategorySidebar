@@ -15,7 +15,7 @@ class Depth implements \Magento\Framework\Option\ArrayInterface {
      *
      * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
      */
-    public function toOptionArray()
+    public function toOptionArray() 
     {
         return [
             [

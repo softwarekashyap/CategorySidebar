@@ -13,7 +13,7 @@
 
     <referenceContainer name="columns">
         <referenceContainer name="sidebar.main" htmlTag="div" htmlClass="ks-sidebar ks-sidebar-categories">
-            <block class="Kashyap\CategorySidebar\Block\Sidebar" name="category-sidebar" template="Kashyap_CategorySidebar::categorySidebar.phtml"/>
+            <block class="Kashyap\CategorySidebar\Block\CategorySidebar" name="category-sidebar" template="Kashyap_CategorySidebar::categorySidebar.phtml"/>
         </referenceContainer>
     </referenceContainer>
 </layout>

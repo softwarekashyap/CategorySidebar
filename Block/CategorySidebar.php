@@ -127,7 +127,7 @@ class CategorySidebar extends Template
     public function getSelectedRootCategory()
     {
         $category = $this->_scopeConfig->getValue(
-            'kashyap_categorysidebar/general/category'
+            'categorysidebar/general/category'
         );
 
 		if ( $category == 'current_category_children'){
@@ -175,7 +175,7 @@ class CategorySidebar extends Template
 
             if (is_object($childCategories) && count($childCategories) > 0 ){
 
-                $html .= '<ul class="o-list o-list--unstyled">';
+                $html .= '<ul class="ks-list ks-list-unstyled">';
 
                 // Loop through children categories
                 foreach ( $childCategories as $childCategory )
@@ -226,7 +226,7 @@ class CategorySidebar extends Template
             return (array)$category->getChildrenNodes();
         }
 
-        return $category->getChildrenCategories();
+        return $category->getChildren();
     }
 	
 

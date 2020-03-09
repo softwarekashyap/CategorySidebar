@@ -6,8 +6,8 @@
  * @package Kashyap_CategorySidebar
 */
 
-namespace Kashyap\Sidebar\Model\Config\Source;
-
+namespace Kashyap\CategorySidebar\Model\Config\Source;
+ 
 /**
  * Class:Categories
  * Kashyap\CategorySidebar\Model\Config\Source
