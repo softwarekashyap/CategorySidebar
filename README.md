@@ -21,6 +21,10 @@ This extension will add the ability to show category tree from a parent or curre
             <block class="Kashyap\CategorySidebar\Block\CategorySidebar" name="category-sidebar" template="Kashyap_CategorySidebar::categorySidebar.phtml"/>
         </referenceContainer>`
 
-![Alt text](Config.png?raw=true "Magento2 Category Sidebar Configuration")
 ---
+
+![Alt text](Config.png?raw=true "Magento2 Category Sidebar Configuration")
+
+---
+
 [![Alt text](https://www.kashyapsoftware.com/pub/media/logo/stores/1/ks_logo.png "kashyapsoftware.com")](https://www.kashyapsoftware.com/)
