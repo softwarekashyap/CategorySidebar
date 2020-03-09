@@ -99,24 +99,29 @@ class CategorySidebar extends Template
      */
     public function getCategories($sorted = false, $asCollection = false, $toLoad = true)
     {
-        $cacheKey = sprintf('%d-%d-%d-%d', $this->getSelectedRootCategory(), $sorted, $asCollection, $toLoad);
-        if ( isset($this->_storeCategories[ $cacheKey ]) )
-        {
-            return $this->_storeCategories[ $cacheKey ];
+        $status = $this->_scopeConfig->getValue('categorysidebar/general/enabled');
+        if($status){
+            $cacheKey = sprintf('%d-%d-%d-%d', $this->getSelectedRootCategory(), $sorted, $asCollection, $toLoad);
+            if ( isset($this->_storeCategories[ $cacheKey ]) )
+            {
+                return $this->_storeCategories[ $cacheKey ];
+            }
+
+            /**
+             * Check if parent node of the store still exists
+             */
+            $category = $this->_categoryFactory->create();
+    		
+    		$categoryDepthLevel = $this->_dataHelper->getCategoryDepthLevel();
+
+            $storeCategories = $category->getCategories($this->getSelectedRootCategory(), $recursionLevel = $categoryDepthLevel, $sorted, $asCollection, $toLoad);
+
+            $this->_storeCategories[ $cacheKey ] = $storeCategories;
+
+            return $storeCategories;
+        } else {
+            return array();
         }
-
-        /**
-         * Check if parent node of the store still exists
-         */
-        $category = $this->_categoryFactory->create();
-		
-		$categoryDepthLevel = $this->_dataHelper->getCategoryDepthLevel();
-
-        $storeCategories = $category->getCategories($this->getSelectedRootCategory(), $recursionLevel = $categoryDepthLevel, $sorted, $asCollection, $toLoad);
-
-        $this->_storeCategories[ $cacheKey ] = $storeCategories;
-
-        return $storeCategories;
     }
 
     /**
@@ -126,9 +131,7 @@ class CategorySidebar extends Template
      */
     public function getSelectedRootCategory()
     {
-        $category = $this->_scopeConfig->getValue(
-            'categorysidebar/general/category'
-        );
+        $category = $this->_scopeConfig->getValue('categorysidebar/general/category' );
 
 		if ( $category == 'current_category_children'){
 			$currentCategory = $this->_coreRegistry->registry('current_category');
@@ -167,6 +170,10 @@ class CategorySidebar extends Template
      */
     public function getChildCategoryView($category, $html = '', $level = 1)
     {	
+        $categorydepth = $this->getCateLavel();
+        if($level >= $categorydepth){
+           return false;
+        }
         // Check if category has children
         if ( $category->hasChildren() )
         {
@@ -184,9 +191,9 @@ class CategorySidebar extends Template
                     $html .= '<li class="level' . $level . ($this->isActive($childCategory) ? ' active' : '') . '">';
                     $html .= '<a href="' . $this->getCategoryUrl($childCategory) . '" title="' . $childCategory->getName() . '" class="' . ($this->isActive($childCategory) ? 'is-active' : '') . '">' . $childCategory->getName() . '</a>';
 
-                    if ( $childCategory->hasChildren() )
+                    if ( $childCategory->hasChildren() && $level+1 < $categorydepth)
                     {
-                        if ( $this->isActive($childCategory) )
+                        if ( $this->isActive($childCategory))
                         {
                             $html .= '<span class="expanded"><i class="fa fa-minus"></i></span>';
                         }
@@ -283,5 +290,9 @@ class CategorySidebar extends Template
     public function getCategoryUrl($category)
     {
         return $this->_categoryHelper->getCategoryUrl($category);
+    }
+
+    public function getCateLavel(){
+        return $this->_scopeConfig->getValue('categorysidebar/general/categorydepth');
     }
 }
