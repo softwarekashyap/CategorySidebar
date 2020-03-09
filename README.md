@@ -8,7 +8,8 @@ This extension will add the ability to show category tree from a parent or curre
 * Place all the files of the extension in your Magento 2 installation in the folder `app/code/Kashyap/CategorySidebar`
 * Enable the extension: `php bin/magento --clear-static-content module:enable Kashyap_CategorySidebar`
 * Upgrade db scheme: `php bin/magento setup:upgrade`
-* Clear cache
+* Deply Static Content: `php bin/magento setup:static-content:deploy -f` Developer Mode
+* Deply Static Content: `php bin/magento setup:static-content:deploy` Production Mode
 
 ## Configuration
 * Go to the `Stores -> Configurations -> Kashyap -> Category Sidebar`
