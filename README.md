@@ -1,4 +1,4 @@
-# Magento 2X Category Sidebar extension
+# Magento 2 Category Sidebar extension
 ![Alt text](header.png?raw=true "Magento2 Category Sidebar")
 
 This extension will add the ability to show category tree from a parent or current category in a sidebar. The category can be selected from the Magento2 admin config page.
